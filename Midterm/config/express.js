@@ -40,8 +40,8 @@ module.exports = function (app, config) {
 
   app.use(express.static(config.root + '/public'));
 
-  require('../app/models/todo');
-  require('../app/controllers/todo')(app, config);
+  require('../app/models/foos');
+  require('../app/controllers/foos')(app, config);
 
 
 

@@ -39,14 +39,6 @@
             "date": 1541405181729,
             "name": "log/application-2018-11-05-02.log",
             "hash": "df68f67e4fa9dd014855957fbd835223"
-<<<<<<< HEAD
-=======
-        },
-        {
-            "date": 1541444965829,
-            "name": "log/application-2018-11-05-13.log",
-            "hash": "924e858f8a7648ee04a891c4f395b45a"
->>>>>>> aec7ab8135725ac34762e3594c02c54c821c27d5
         }
     ]
 }

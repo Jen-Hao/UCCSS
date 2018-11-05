@@ -39,14 +39,6 @@
             "date": 1541405181727,
             "name": "log/error-2018-11-05-02.log",
             "hash": "da1babc710578ab74d858a18d76c3b9d"
-<<<<<<< HEAD
-=======
-        },
-        {
-            "date": 1541444965826,
-            "name": "log/error-2018-11-05-13.log",
-            "hash": "f43a86a4cbf299465b3270d6b4ec7410"
->>>>>>> aec7ab8135725ac34762e3594c02c54c821c27d5
         }
     ]
 }
