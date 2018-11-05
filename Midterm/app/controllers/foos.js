@@ -6,7 +6,6 @@ Foos = mongoose.model('Foos');
 asyncHandler = require('express-async-handler');
 
 
-
 module.exports = function (app, config) {
     app.use('/api', router);
 
