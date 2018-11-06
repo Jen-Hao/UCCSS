@@ -5,10 +5,10 @@ var logger = require('./config/logger');
 var app = express();
 
 
-require('./config/express')(app, config);
-
-require('http').createServer(app).listen(config.port, function () {
-	logger.log('info', "HTTP Server listening on port: %d, in %s mode", config.port, app.get('env'));
+require('./config/express')(app, config);
+console.log(config)
+require('http').createServer(app).listen(config.port, function () {
+    logger.log('info',"HTTP Server listening on port: %d, in %s mode", config.port, app.get('env'));
 });
 
 
