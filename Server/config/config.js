@@ -5,25 +5,25 @@ var path = require('path'),
 var config = {
     development: {
         root: rootPath,
-        app: { name: 'PM' },
-        port: 3300,
-        db: 'mongodb://127.0.0.1/todo-dev'
+        app: { name: 'UCCSS' },
+        port: 5000,
+        db: 'mongodb://127.0.0.1/helpMe-dev'
 
     },
 
     test: {
         root: rootPath,
-        app: { name: 'PM' },
+        app: { name: 'UCCSS' },
         port: 4000,
-        db: 'mongodb://127.0.0.1/todo-test'
+        db: 'mongodb://127.0.0.1/helpMe-test'
 
     },
 
     production: {
         root: rootPath,
-        app: { name: 'PM' },
+        app: { name: 'UCCSS' },
         port: 80,
-        db: 'mongodb://127.0.0.1/todo'
+        db: 'mongodb://127.0.0.1/helpMe'
 
     }
 };
