@@ -1,15 +1,15 @@
 import { inject } from 'aurelia-framework';
 import { Router } from 'aurelia-router';
-import { User } from '../resources/data/foo-object';
+import { Foo } from '../resources/data/foo-object';
 
-@inject(Router, User)
+@inject(Router, Foo)
 
 export class Foos {
   constructor(router, foos) {
     this.router = router;
     this.foos = foos;
     this.message = 'Foos';
-    this.showUserEditForm = false;
+    this.showFooEditForm = false;
   }
 
 
@@ -30,49 +30,45 @@ export class Foos {
 
   newFoo() {
     this.foo = {
-      firstName: '',
-      lastName: '',
-      active: true,
-      role: 'user',
-      email: '',
-      password: ''
+      foo: '',
+      woo: ''
     };
     this.openEditForm();
   }
 
 
-  editUser(user) {
-    this.user = user;
+  editFoo(foo) {
+    this.foo = foo;
     this.openEditForm();
   }
 
   openEditForm() {
-    this.showUserEditForm = true;
-    setTimeout(() => { $('#firstName').focus(); }, 500);
+    this.showFooEditForm = true;
+    setTimeout(() => { $('#foo').focus(); }, 500);
   }
 
-  changeActive(user) {
-    this.user = user;
+  changeActive(foo) {
+    this.foo = foo;
     this.save();
   }
 
 
   async save() {
-    if (this.user && this.user.firstName && this.user.lastName
-      && this.user.email && this.user.password) {await this.users.saveUser(this.user);}
-    await this.getUsers();
+    if (this.foo && this.foo.foo && this.foo.woo
+    ) {await this.foos.saveFoo(this.foo);}
+    await this.getFoos();
     this.back();
   }
 
   async delete() {
-    if (this.user) {
-      await this.users.delete(this.user);
-      await this.getUsers();
+    if (this.foo) {
+      await this.foos.delete(this.foo);
+      await this.getFoos();
       this.back();
     }
   }
 
   back() {
-    this.showUserEditForm = false;
+    this.showFooEditForm = false;
   }
 }
