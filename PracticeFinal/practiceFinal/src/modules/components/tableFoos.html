@@ -23,7 +23,12 @@
                             <td click.trigger="editFoo(foo)">${foo.foo}</td>
                             <td click.trigger="editFoo(foo)">${foo.woo}</td>
                             
-                            
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" change.delegate="changeActive(foo)" checked.bind="foo.active"
+                                        type="checkbox" value="" id="defaultCheck1"></div>
+
+                            </td>
                         </tr>
                     </tbody>
                 </table>
