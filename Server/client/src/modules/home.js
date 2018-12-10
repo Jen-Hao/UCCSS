@@ -1,6 +1,6 @@
 export class Home {
   constructor() {
-    this.message = 'Home is where the heart is :)';
+    this.message = 'Home';
   }
 
   attached() {
