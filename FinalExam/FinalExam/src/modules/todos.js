@@ -31,8 +31,8 @@ export class Todo {
   newTodo() {
     this.todo = {
       todo: '',
-      priotity: '',
-      done: ''
+      priotity: 'High',
+      done: true
     };
     this.openEditForm();
   }
@@ -55,7 +55,7 @@ export class Todo {
 
 
   async save() {
-    if (this.todo && this.todo.todo && this.todo.priotity && this.todo.done
+    if (this.todo && this.todo.todo && this.todo.priotity
     ) {await this.todos.saveTodo(this.todo);}
     await this.getTodos();
     this.back();
