@@ -1,3 +1,4 @@
+
 import { inject } from 'aurelia-framework';
 import { HttpClient, json } from 'aurelia-fetch-client';
 
@@ -21,8 +22,10 @@ export class DataServices {
           request(request) {
             // eslint-disable-next-line no-console
             console.log('Requesting ${request.method} ${request.url}');
+            // eslint-disable-next-line vars-on-top
             let authHeader = 'Bearer ' + localStorage.getItem('aurelia_token');
             request.headers.append('Authorization', authHeader);
+
             return request;
           },
           response(response) {
@@ -77,6 +80,25 @@ export class DataServices {
     return this.httpClient
       .fetch(url, {
         method: 'delete'
+      })
+      .then(response => response.json())
+      .then(object => {
+        return object;
+      })
+      .catch(error => {
+        return error;
+      });
+  }
+
+  uploadFiles(files, url) {
+    let formData = new FormData();
+    files.forEach((item, index) => {
+      formData.append('file' + index, item);
+    });
+    return this.httpClient
+      .fetch(url, {
+        method: 'post',
+        body: formData
       })
       .then(response => response.json())
       .then(object => {

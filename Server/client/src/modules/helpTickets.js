@@ -20,6 +20,7 @@ export class HelpTickets {
   attached() {
     feather.replace();
   }
+
   showEditForm() {
     this.showHelpTicketEditForm = true;
     setTimeout(() => { $('#firstName').focus(); }, 500);
@@ -27,7 +28,23 @@ export class HelpTickets {
 
   back() {
     this.showHelpTicketEditForm = false;
+    this.showHelpTicketDisplayForm = false;
+    this.filesToUpload = new Array();
+    this.files = new Array();
   }
+
+  changeFiles() {
+    this.filesToUpload = this.filesToUpload ? this.filesToUpload : new Array();
+    for (let i = 0; i < this.files.length; i++) {
+      let addFile = true;
+      // eslint-disable-next-line no-loop-func
+      this.filesToUpload.forEach(item => {
+        if (item.name === this.files[i].name) addFile = false;
+      });
+      if (addFile) this.filesToUpload.push(this.files[i]);
+    }
+  }
+
 
   async getHelpTickets() {
     await this.helpTickets.getHelpTickets(this.userObj);
@@ -59,18 +76,22 @@ export class HelpTickets {
     this.showEditForm();
   }
 
-
   async save() {
     if (this.helpTicket && this.helpTicket.title && this.helpTicketContent && this.helpTicketContent.content) {
-      if (this.userObj.role !== 'user') {
+      if (this.userObj.role === 'staff' || this.userObj.role === 'admin') {
         this.helpTicket.ownerId = this.userObj._id;
       }
       let helpTicket = { helpTicket: this.helpTicket, content: this.helpTicketContent };
-      await this.helpTickets.saveHelpTicket(helpTicket);
+      let serverResponse = await this.helpTickets.saveHelpTicket(helpTicket);
+      if (this.filesToUpload && this.filesToUpload.length > 0) {
+        this.helpTickets.uploadFile(this.filesToUpload,
+          sponse.contentID);
+      }
       await this.getHelpTickets();
       this.back();
     }
   }
+
 
   async delete() {
     if (this.helpTicket) {
