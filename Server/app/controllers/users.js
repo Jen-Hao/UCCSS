@@ -1,4 +1,3 @@
-//from Express routing pp, slide 11: Respond to user
 var express = require('express'),
     router = express.Router(),
     logger = require('../../config/logger'),
@@ -14,7 +13,7 @@ var requireAuth = passport.authenticate('jwt', { session: false });
 
 
 module.exports = function (app, config) {
-    app.use('/api', router);            // the '/api' adds an api to every URL that gets passed in
+    app.use('/api', router);     
 
 
     
@@ -28,7 +27,6 @@ module.exports = function (app, config) {
     }));
 
 
-    //gotten from Express Routing PP, slide 14, except it is reformated to look like the route above this one
     router.get('/users/:id',requireAuth, asyncHandler(async (req, res) => {
         logger.log('info', 'Get user %s', req.params.id);
         await User.findById(req.params.id).then(result => {
@@ -56,8 +54,7 @@ module.exports = function (app, config) {
             })
     }));
 
-    //Week 12 Authentication & Authorization PP slide 9 
-    //**IN professors video it was asyncHandler (async before the req, res, next***
+
     router.put('/users/password/:userId', requireAuth, function (req, res, next) {
         logger.log('Update user ' + req.params.userId, 'verbose');
         dById(req.params.userId)
