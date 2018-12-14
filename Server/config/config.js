@@ -8,7 +8,7 @@ var config = {
         app: { name: 'UCCSS' },
         port: 5000,
         db: 'mongodb://127.0.0.1/helpMe-dev',
-        secret: "nimalikedhistreats",
+        secret: "JenHaolikedhistreats",
         uploads: './public/uploadedFiles' 
     },
     test: {
@@ -16,7 +16,7 @@ var config = {
         app: { name: 'UCCSS' },
         port: 4000,
         db: 'mongodb://127.0.0.1/helpMe-test',
-        secret: "nimalikedhistreats",
+        secret: "JenHaolikedhistreats",
         uploads: './public/uploadedFiles' 
 
     },
@@ -26,7 +26,7 @@ var config = {
         app: { name: 'UCCSS' },
         port: 80,
         db: 'mongodb://127.0.0.1/helpMe',
-        secret: "nimalikedhistreats",
+        secret: "JenHaolikedhistreats",
         uploads: './public/uploadedFiles' 
     }
 };
