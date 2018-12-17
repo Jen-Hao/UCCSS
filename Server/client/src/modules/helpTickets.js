@@ -85,7 +85,7 @@ export class HelpTickets {
       let serverResponse = await this.helpTickets.saveHelpTicket(helpTicket);
       if (this.filesToUpload && this.filesToUpload.length > 0) {
         this.helpTickets.uploadFile(this.filesToUpload,
-          sponse.contentID);
+          serverResponse.contentID);
       }
       await this.getHelpTickets();
       this.back();
